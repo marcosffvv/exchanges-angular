@@ -1,4 +1,4 @@
-div{
+.conversor{
     display: flex;
     flex-direction: column;
     input{
@@ -14,9 +14,30 @@ div{
     }
     button{
         margin-left: 60px;
+        margin-bottom: 25px;
         padding: 5px;
         width: 120px;
+        
     }
+    button:hover{
+        cursor: pointer;
+    }
+    &__table{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            padding-top: 20px;
+            width: 190px;
+            height: 70px;
+        }
+    }
+    
 }
 
 

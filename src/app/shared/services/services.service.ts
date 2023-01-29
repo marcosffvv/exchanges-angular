@@ -8,11 +8,12 @@ export class ServicesService {
 
   // amount: number = 1;
 
+
   constructor(private http: HttpClient) {}
 
-  DB_URL: string = 'https://api.vatcomply.com/rates?base=';
+  DB_URL: string = `https://api.vatcomply.com/rates?base=`;
 
-  getExchanges(country: any){
-    return this.http.get(this.DB_URL + country);
+  getExchanges(value: string){
+    return this.http.get(this.DB_URL + value ? this.DB_URL + value: this.DB_URL + 'EUR');
   }
 }

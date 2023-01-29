@@ -1,17 +1,29 @@
-<div>
-    <p>Escribe aquí el pais de la moneda que quieres convertir:</p>
-    <input type="text">
-    <!-- [(ngModel)]="country" -->
-
-    <p>Escribe aquí el pais de la moneda a la que quieres convertir:</p>
-    <input  type="text">
+<div class="conversor">
+    <p>Escribe aquí la moneda que quieres convertir:</p>
+    <input type="text" [(ngModel)]="country" >
     
     <p>Escribe aquí la cantidad que quieres convertir:</p>
-    <input type="number" value="1">
-    
-    <button>Convertir Moneda</button>
-    <!-- (click)="getExchanges(country)" -->
+    <input type="number" value="1" [(ngModel)]="multiplier">
 
+    <button (click)="recibeExchange(country)">Convertir Moneda</button>
+
+    <p>Fecha de conversión: <b>{{allExchanges.date}}</b></p>
+    <p>Moneda Base: <b>{{allExchanges.base}}</b></p>
+    
+    <!-- <div>{{oneExchanges}}</div> -->
+
+    <div class="conversor__table">
+        <div *ngFor="let country of allExchanges.rates | keyvalue">
+            <p><b>Moneda:</b> <i></i> {{country.key}}</p>
+            <p><b>Value:</b> <i></i> {{multiplierValue(country.value)}}</p>
+        </div>
+    </div>
+    
 </div>
+
+<!-- <div *ngFor="let contry of allExchanges | keyvalue">
+    <p><b>Country:</b> <i></i> {{contry.key}}</p>
+    <p><b>Value:</b> <i></i> {{contry.value}}</p>
+</div> -->
 
 
